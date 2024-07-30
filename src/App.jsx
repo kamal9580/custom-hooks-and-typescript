@@ -160,18 +160,26 @@
 //   if (isLoading) return <div>loading...</div>
 //   return <div>hello, you have {data.todos.length} todos!</div>
 
-import React from 'react'
-import { useIsOnline } from './Useisonline'
-import {useMousePointer} from `./Usemousehook`
+import React from 'react';
+import { useIsOnline } from './Useisonline';
+import {useMousePointer} from `./Usemousehook`;
+import {useInterval} from `./Useinterval`;
 
 function App() {
   const mousePointer = useMousePointer();
   const isOnline = useIsOnline(5);
+  const [count, setCount] = useState(0);
+
+  useInterval(() => {
+    setCount(c => c + 1);
+  }, 1000)
+
 
   return (
     <>
       Your mouse position is {mousePointer.x} {mousePointer.y}
       {isOnline ? "You are online yay!" : "You are not online"}
+      Timer is at {count}
     </>
   )
 }
