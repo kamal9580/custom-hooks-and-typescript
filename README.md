@@ -7,7 +7,7 @@ This repository contains examples and explanations of custom hooks in React. Cus
 1.  Data fetching hooks
 2.  Auto refreshing hook
 3.  swr
-4. `useIsOnline`
+4. useIsOnline
 5. usemousepointer hook
 6. useinterval hook
 7. useDebounce hook
