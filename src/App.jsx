@@ -164,11 +164,20 @@ import React from 'react';
 import { useIsOnline } from './Useisonline';
 import {useMousePointer} from `./Usemousehook`;
 import {useInterval} from `./Useinterval`;
+import { useDebounce } from './Usedebounce';
+import {useEffect} from "react";
 
 function App() {
   const mousePointer = useMousePointer();
   const isOnline = useIsOnline(5);
   const [count, setCount] = useState(0);
+  const [value,setvalue]=useState(0);
+  const debounceValue = useDebounce(value,500);
+
+  useEffect( ()=> {
+    fetch("")
+
+  },[debounceValue])
 
   useInterval(() => {
     setCount(c => c + 1);
@@ -180,6 +189,8 @@ function App() {
       Your mouse position is {mousePointer.x} {mousePointer.y}
       {isOnline ? "You are online yay!" : "You are not online"}
       Timer is at {count}
+      Debounced value is {debounceValue}
+
     </>
   )
 }

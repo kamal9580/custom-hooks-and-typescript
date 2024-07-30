@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useMousePointer = () => {
+export const useMousePointer = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
