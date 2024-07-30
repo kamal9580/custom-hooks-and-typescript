@@ -159,3 +159,21 @@
 //   if (error) return <div>failed to load</div>
 //   if (isLoading) return <div>loading...</div>
 //   return <div>hello, you have {data.todos.length} todos!</div>
+
+import React from 'react'
+import { useIsOnline } from './Useisonline'
+import {useMousePointer} from `./Usemousehook`
+
+function App() {
+  const mousePointer = useMousePointer();
+  const isOnline = useIsOnline(5);
+
+  return (
+    <>
+      Your mouse position is {mousePointer.x} {mousePointer.y}
+      {isOnline ? "You are online yay!" : "You are not online"}
+    </>
+  )
+}
+
+export default App
